@@ -29,6 +29,20 @@ export default {
     <input v-model="this.store.query" type="text">
     <button @click="addQuery">trova</button>
 
+    <div>
+
+      <ul>
+        <li v-for="film in this.store.films">
+          <p>{{ film.title }}</p>
+          <p>{{ film.original_title}}</p>
+          <p>{{ film.original_lenguage }}</p>
+          <p>{{ film.vote_average }}</p>
+
+        </li>
+      </ul>
+
+    </div>
+
   </div>
 </template>
 
