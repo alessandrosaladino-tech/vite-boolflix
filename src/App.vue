@@ -35,7 +35,7 @@ export default {
         <li v-for="film in this.store.films">
           <p>{{ film.title }}</p>
           <p>{{ film.original_title}}</p>
-          <p>{{ film.original_lenguage }}</p>
+          <p>{{ film.original_language }}</p>
           <p>{{ film.vote_average }}</p>
 
         </li>
