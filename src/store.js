@@ -8,6 +8,7 @@ export const store = reactive({
     query: "",
     films: "",
     tvs: "",
+    completeResults: [],
     completeUrl: "",
 
 
@@ -17,6 +18,7 @@ export const store = reactive({
         .get(url)
         .then(response =>{
             this.films = response.data.results
+            this.completeResults.push(...response.data.results)
             console.log(this.films);
         })
         .catch(error =>{
@@ -29,7 +31,8 @@ export const store = reactive({
         .get(url)
         .then(response =>{
             this.tvs = response.data.results
-            console.log(this.tvs);
+            this.completeResults.push(...response.data.results)
+            console.log(this.tvs, this.completeResults);
         })
         .catch(error =>{
             console.error(error);

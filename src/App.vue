@@ -10,9 +10,10 @@ export default {
 
   methods: {
     addQuery() {
+      store.completeResults = [];
       const urlMovieComplete = this.store.movieUrl + this.store.query;
       const urlTvsComplete = this.store.tv_url + this.store.query;
-      this.store.fetchTv(urlTvsComplete)
+      this.store.fetchTv(urlTvsComplete);
       this.store.fetchFilms(urlMovieComplete);
       console.log(this.store.query, urlMovieComplete, urlTvsComplete);
 
@@ -34,15 +35,15 @@ export default {
     <div>
 
       <ul>
-        <li v-for="film in this.store.films & tv in this.store.tvs">
-          <p>{{ film.title }}</p>
-          <p>{{ film.original_title }}</p>
+        <li v-for="result in this.store.completeResults">
+          <p>{{ result.title ? result.title : result.name}}</p>
+          <p>{{ result.original_title ? result.original_title : result.original_name }}</p>
           <img
-            :src="film.original_language == 'en' ? 'https://flagsapi.com/GB/shiny/64.png' : 'https://flagsapi.com/' + film.original_language.toUpperCase().split('_')[0] + '/shiny/64.png'"
+            :src="result.original_language == 'en' ? 'https://flagsapi.com/GB/shiny/64.png' : 'https://flagsapi.com/' + result.original_language.toUpperCase().split('_')[0] + '/shiny/64.png'"
             @error="$event.target.src = 'https://cdn2.iconfinder.com/data/icons/calin-support/32/-_52_world_support-1024.png'"
-            :alt="film.original_language" />
+            :alt="result.original_language" />
 
-          <p v-for="star in Math.round(film.vote_average / 2)">
+          <p v-for="star in Math.round(result.vote_average / 2)">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
               viewBox="0 0 16 16">
               <path
@@ -50,7 +51,7 @@ export default {
             </svg>
           </p>
 
-          <p v-for="star in Math.round(5 - film.vote_average / 2)">
+          <p v-for="star in Math.round(5 - result.vote_average / 2)">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star"
               viewBox="0 0 16 16">
               <path
