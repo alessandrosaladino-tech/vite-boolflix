@@ -36,6 +36,7 @@ export default {
 
       <ul>
         <li v-for="result in this.store.completeResults">
+          <img :src="'https://image.tmdb.org/t/p/w500/' + `${result.poster_path}`" >
           <p>{{ result.title ? result.title : result.name}}</p>
           <p>{{ result.original_title ? result.original_title : result.original_name }}</p>
           <img
