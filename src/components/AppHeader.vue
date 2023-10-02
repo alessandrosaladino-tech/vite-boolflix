@@ -64,5 +64,6 @@ header {
 
 .w_20 {
     width: 20%;
+    box-shadow: 5px 5px 8px   rgb(10, 10, 10) ;
 }
 </style>

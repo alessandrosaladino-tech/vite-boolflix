@@ -40,6 +40,9 @@ main {
   background-image: url(./assets/img/netflix-800x450.webp);
   height: calc(100vh - 72px);
   overflow: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 

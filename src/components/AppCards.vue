@@ -70,7 +70,8 @@ export default {
     align-items: center;
     overflow: hidden;
     position: relative;
-    border: 3px solid grey;
+    border: 3px solid $blfx_primary;
+    transition: transform .2s;
 
     & .card_img {
         width: 100%;
@@ -116,10 +117,12 @@ export default {
 
 .blfx_card:hover .card_body_blfx {
     display: block;
+   
 }
 
 .blfx_card:hover {
     border: 3px solid $blfx_logo;
+    transform: scale(1.1);
 }
 
 
