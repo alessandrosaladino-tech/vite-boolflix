@@ -122,7 +122,5 @@ export default {
     border: 3px solid $blfx_logo;
 }
 
-section {
-    background-color: $blfx_primary;
-}
+
 </style>

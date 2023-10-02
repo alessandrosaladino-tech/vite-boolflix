@@ -37,8 +37,9 @@ export default {
 @use "./assets/scss/partials/variables" as *;
 
 main {
-  background-color: $blfx_primary;
-  height: 100vh;
+  background-image: url(./assets/img/netflix-800x450.webp);
+  height: calc(100vh - 72px);
+  overflow: auto;
 }
 
 
