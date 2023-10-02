@@ -35,15 +35,12 @@ export default {
 <template>
   <AppHeader></AppHeader>
 
-  <AppMain></AppMain>
+  <AppMain  ></AppMain>
   
 </template>
 
 <style lang="scss" scoped>
 @use "./assets/scss/partials/variables" as *;
 
-main {
-  background-color: $blfx_primary;
-  height: 100vh;
-}
+
 </style>
