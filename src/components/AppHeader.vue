@@ -23,12 +23,12 @@ export default {
 <template>
     <header>
 
-        <nav class="navbar navbar-expand navbar-light d-flex justify-content-between">
+        <nav class="navbar navbar-expand navbar-light d-flex justify-content-between px-3">
             <a class="nav-item nav-link active" href="#" aria-current="page">
                 <h1>BOOLFLIX</h1>
             </a>
             <div class="nav navbar-nav">
-                <input v-model="this.store.query" type="text">
+                <input @keyup.enter="addQuery"  v-model="this.store.query" type="text"/>
                 <button @click="addQuery">FIND</button>
             </div>
         </nav>
