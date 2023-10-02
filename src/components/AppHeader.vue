@@ -58,7 +58,7 @@ header {
 
     & h1 {
         color: $blfx_logo;
-        text-shadow: 3px 3px black;
+        text-shadow: 3px 3px 3px black;
     }
 }
 
