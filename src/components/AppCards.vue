@@ -17,22 +17,22 @@ export default {
                 <div class="shadow blfx_card mt-4">
 
 
-                    <div class="card-img">
+                    <div class="card_img">
                         <img :src="'https://image.tmdb.org/t/p/w500/' + `${result.poster_path}`">
                     </div>
 
                     <div class="card_body_blfx">
-                        <p>Titolo:{{ result.title ? result.title : result.name }}</p>
-                        <p>Titolo originale:{{ result.original_title ? result.original_title : result.original_name }}</p>
+                        <p>Titolo: {{ result.title ? result.title : result.name }}</p>
+                        <p>Titolo originale: {{ result.original_title ? result.original_title : result.original_name }}</p>
                         <p>Lingua:
                             <img :src="result.original_language == 'en' ? 'https://flagsapi.com/GB/shiny/64.png' : 'https://flagsapi.com/' + result.original_language.toUpperCase().split('_')[0] + '/shiny/64.png'"
                                 @error="$event.target.src = 'https://cdn2.iconfinder.com/data/icons/calin-support/32/-_52_world_support-1024.png'"
                                 :alt="result.original_language" class="blfx_flag" />
                         </p>
 
-                        <p><span>Voto:</span>
+                        <p class="d-flex align-items-center gap-1"><span>Voto: </span>
                             <span v-for="star in Math.round(result.vote_average / 2)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow"
                                     class="bi bi-star-fill" viewBox="0 0 16 16">
                                     <path
                                         d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -47,6 +47,8 @@ export default {
                                 </svg>
                             </span>
                         </p>
+
+                        <p><span>Overview: </span>  {{ result.overview }}</p>
                     </div>
                 </div>
             </div>
@@ -56,6 +58,7 @@ export default {
 
 
 <style lang="scss" scoped>
+@use "../src/assets/scss/partials/variables" as *;
 .blfx_card {
     width: 200px;
     height: 350px;
@@ -64,6 +67,15 @@ export default {
     overflow: hidden;
     position: relative;
 
+    & .card_img {
+        width: 100%;
+        height: 100%;
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 
 .card_body_blfx {
@@ -75,15 +87,21 @@ export default {
     height: 100%;
     width: 100%;
     display: none;
-    overflow-y: scroll;
+    overflow-y: auto;
     cursor: default;
+    background-color: $blfx_primary;
+    color: white;
+    padding: 1rem;
 
     & p {
-        vertical-align: middle;
+       font-weight: bold;
+       font-size: 10px;
+       vertical-align: middle;
     }
 
     & blfx_flag {
         height: 15px;
+        
     }
 
     & img {
